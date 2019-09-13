@@ -3,6 +3,7 @@ import React from 'react'
 import { useRoutes } from 'hookrouter'
 
 import RootPage from '../pages/root-page'
+import NotFoundPage from '../pages/not-found-page'
 
 import PageHeader from '../page-header'
 import PageFooter from '../page-footer'
@@ -22,7 +23,7 @@ const App: React.FC = () => {
       style={{ display: 'flex', minHeight: '100vh', flexDirection: 'column' }}
     >
       <PageHeader />
-      <main style={{ flex: 1 }}>{routeResult}</main>
+      <main style={{ flex: 1 }}>{routeResult || <NotFoundPage />}</main>
       <PageFooter />
     </div>
   )
