@@ -8,6 +8,8 @@ import NotFoundPage from '../pages/not-found-page'
 import PageHeader from '../page-header'
 import PageFooter from '../page-footer'
 
+import { Container } from 'semantic-ui-react'
+
 /**********************************************************************/
 
 const routes = {
@@ -23,7 +25,9 @@ const App: React.FC = () => {
       style={{ display: 'flex', minHeight: '100vh', flexDirection: 'column' }}
     >
       <PageHeader />
-      <main style={{ flex: 1 }}>{routeResult || <NotFoundPage />}</main>
+      <Container as="main" style={{ flex: 1 }}>
+        {routeResult || <NotFoundPage />}
+      </Container>
       <PageFooter />
     </div>
   )
