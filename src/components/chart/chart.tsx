@@ -7,7 +7,7 @@ import cc from '../../cryptocompare'
 
 /**********************************************************************/
 
-const Chart = () => {
+const Chart: React.FC = () => {
   const [data, setData] = React.useState()
 
   const fsym = 'BTC'
