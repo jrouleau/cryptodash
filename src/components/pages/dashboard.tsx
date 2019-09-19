@@ -7,7 +7,7 @@ import Favourites from '../favourites'
 
 /**********************************************************************/
 
-const RootPage: React.FC = () => {
+const DashboardPage: React.FC = () => {
   /* render */
   return (
     <Grid>
@@ -29,4 +29,4 @@ const RootPage: React.FC = () => {
   )
 }
 
-export default RootPage
+export default DashboardPage

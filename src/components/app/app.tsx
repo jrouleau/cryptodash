@@ -2,8 +2,8 @@ import React from 'react'
 
 import { useRoutes } from 'hookrouter'
 
-import RootPage from '../pages/root-page'
-import NotFoundPage from '../pages/not-found-page'
+import DashboardPage from '../pages/dashboard'
+import NotFoundPage from '../pages/not-found'
 
 import PageHeader from '../page-header'
 import PageFooter from '../page-footer'
@@ -13,11 +13,11 @@ import { Container } from 'semantic-ui-react'
 /**********************************************************************/
 
 const routes = {
-  '/': () => <RootPage />,
+  '/': () => <DashboardPage />,
 }
 
 const App: React.FC = () => {
-  const routeResult = useRoutes(routes)
+  const page = useRoutes(routes)
 
   /* render */
   return (
@@ -26,7 +26,7 @@ const App: React.FC = () => {
     >
       <PageHeader />
       <Container as="main" style={{ flex: 1 }}>
-        {routeResult || <NotFoundPage />}
+        {page || <NotFoundPage />}
       </Container>
       <PageFooter />
     </div>
