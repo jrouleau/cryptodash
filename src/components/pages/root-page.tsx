@@ -2,6 +2,8 @@ import React from 'react'
 
 import { Grid, Segment } from 'semantic-ui-react'
 
+import Chart from '../chart'
+
 /**********************************************************************/
 
 const RootPage: React.FC = () => {
@@ -15,7 +17,9 @@ const RootPage: React.FC = () => {
       </Grid.Row>
       <Grid.Row>
         <Grid.Column>
-          <Segment>chart</Segment>
+          <Segment>
+            <Chart />
+          </Segment>
         </Grid.Column>
       </Grid.Row>
     </Grid>
