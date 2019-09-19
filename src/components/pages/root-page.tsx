@@ -3,6 +3,7 @@ import React from 'react'
 import { Grid, Segment } from 'semantic-ui-react'
 
 import Chart from '../chart'
+import Favourites from '../favourites'
 
 /**********************************************************************/
 
@@ -12,7 +13,9 @@ const RootPage: React.FC = () => {
     <Grid>
       <Grid.Row>
         <Grid.Column>
-          <Segment>favourites</Segment>
+          <Segment>
+            <Favourites />
+          </Segment>
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
