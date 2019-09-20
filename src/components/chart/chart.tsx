@@ -1,69 +1,64 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import * as Highcharts from 'highcharts/highstock'
-import HighchartsReact from 'highcharts-react-official'
 
 import cc from '../../cryptocompare'
 
 /**********************************************************************/
 
-const Chart: React.FC = () => {
-  const [data, setData] = React.useState()
+const chartOptions: Highcharts.Options = {
+  chart: { animation: false },
+  credits: { enabled: false },
+  rangeSelector: { selected: 1 },
+  scrollbar: { enabled: false },
+}
 
-  const fsym = 'BTC'
-  const tsym = 'USD'
+const createChart = (ref: HTMLElement | null, pair: [string, string]) => {
+  if (!ref) return
 
-  useEffect(() => {
-    cc.histoDay(fsym, tsym, {
-      limit: 'none',
-    }).then((d) => {
-      const chartData = d.map(({ time, open, high, low, close }) => [
-        time * 1000,
-        open,
-        high,
-        low,
-        close,
-      ])
+  const [fsym, tsym] = pair
+  const name = `${fsym}/${tsym}`
 
-      setData(chartData)
-    })
-  }, [fsym, tsym])
+  Highcharts.stockChart(ref, chartOptions, (chart: Highcharts.Chart) => {
+    chart.showLoading()
+    chart.setTitle({ text: name })
 
-  const chartOpts: Highcharts.Options = {
-    rangeSelector: {
-      selected: 1,
-    },
+    cc.histoDay(fsym, tsym, { limit: 'none' }).then((data) => {
+      if (
+        !chart.title ||
+        !chart.title.element ||
+        chart.title.element.textContent !== name
+      )
+        return
 
-    title: {
-      text: `${fsym}/${tsym}`,
-    },
-
-    chart: {
-      animation: false,
-    },
-
-    credits: { enabled: false },
-
-    series: [
-      {
+      const series: Highcharts.SeriesCandlestickOptions = {
         type: 'candlestick',
-        name: `${fsym}/${tsym}`,
-        data,
-      },
-    ],
-  }
+        name,
+        data: data.map(({ time, open, high, low, close }) => [
+          time * 1000,
+          open,
+          high,
+          low,
+          close,
+        ]),
+      }
+
+      chart.hideLoading()
+      chart.addSeries(series)
+    })
+  })
+}
+
+const Chart: React.FC = () => {
+  const pair: [string, string] = ['BTC', 'USD']
+
+  const chartRef = React.useCallback(
+    (node: HTMLElement | null) => createChart(node, pair),
+    [pair],
+  )
 
   /* render */
-  return (
-    <>
-      <HighchartsReact
-        options={chartOpts}
-        highcharts={Highcharts}
-        immutable={true}
-        constructorType={'stockChart'}
-      />
-    </>
-  )
+  return <div ref={chartRef} style={{ flex: 1 }} />
 }
 
 export default Chart
