@@ -13,7 +13,7 @@ const DashboardPage: React.FC<{ id?: string }> = ({ id }) => {
   const [fsym, tsym] = id ? id.split(':') : []
   const pair: [string, string] = [fsym, tsym]
 
-  if (!fsym || !tsym) navigate('/BTC:USD', true)
+  if (!fsym || !tsym) navigate('/c/BTC:USD', true)
 
   /* render */
   return (

@@ -14,7 +14,7 @@ import { Container } from 'semantic-ui-react'
 
 const routes = {
   '/': () => <DashboardPage />,
-  '/:id': ({ id }: HookRouter.QueryParams) => <DashboardPage id={id} />,
+  '/c/:id': ({ id }: HookRouter.QueryParams) => <DashboardPage id={id} />,
 }
 
 const App: React.FC = () => {
