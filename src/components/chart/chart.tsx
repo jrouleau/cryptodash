@@ -49,9 +49,7 @@ const createChart = (ref: HTMLElement | null, pair: [string, string]) => {
   })
 }
 
-const Chart: React.FC = () => {
-  const pair: [string, string] = ['BTC', 'USD']
-
+const Chart: React.FC<{ pair: [string, string] }> = ({ pair }) => {
   const chartRef = React.useCallback(
     (node: HTMLElement | null) => createChart(node, pair),
     [pair],
