@@ -2,7 +2,7 @@ import React from 'react'
 
 import { navigate } from 'hookrouter'
 
-import { Grid, Segment } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
 import Chart from '../chart'
 import Favourites from '../favourites'
@@ -20,16 +20,12 @@ const DashboardPage: React.FC<{ id?: string }> = ({ id }) => {
     <Grid>
       <Grid.Row>
         <Grid.Column>
-          <Segment>
-            <Favourites />
-          </Segment>
+          <Favourites />
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
         <Grid.Column>
-          <Segment>
-            <Chart pair={pair} />
-          </Segment>
+          <Chart pair={pair} />
         </Grid.Column>
       </Grid.Row>
     </Grid>
