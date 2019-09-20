@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useRoutes, HookRouter } from 'hookrouter'
+import { HookRouter, useRoutes } from 'hookrouter'
 
 import DashboardPage from '../pages/dashboard'
 import NotFoundPage from '../pages/not-found'
