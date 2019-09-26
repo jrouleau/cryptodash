@@ -19,7 +19,7 @@ const Favourites: React.FC<{ selected: string }> = ({ selected }) => {
 
   /* render */
   return (
-    <Grid columns="8" doubling style={{ padding: '0 .75rem' }}>
+    <Grid columns="8" doubling style={{ margin: '-.25rem' }}>
       {favourites.map((f) => {
         const isActive = f.Symbol === selected
         return (

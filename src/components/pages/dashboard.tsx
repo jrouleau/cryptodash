@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Grid } from 'semantic-ui-react'
+import { Segment } from 'semantic-ui-react'
 
 import Chart from '../chart'
 import Favourites from '../favourites'
@@ -12,18 +12,12 @@ const DashboardPage: React.FC<{ selectedCoin: string }> = ({
 }) => {
   /* render */
   return (
-    <Grid>
-      <Grid.Row>
-        <Grid.Column>
-          <Favourites selected={selectedCoin} />
-        </Grid.Column>
-      </Grid.Row>
-      <Grid.Row>
-        <Grid.Column>
-          <Chart pair={[selectedCoin, 'USD']} />
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>
+    <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+      <Favourites selected={selectedCoin} />
+      <Segment>
+        <Chart pair={[selectedCoin, 'USD']} />
+      </Segment>
+    </div>
   )
 }
 

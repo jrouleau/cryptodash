@@ -4,8 +4,6 @@ import * as Highcharts from 'highcharts/highstock'
 
 import cc from '../../cryptocompare'
 
-import { Segment } from 'semantic-ui-react'
-
 /**********************************************************************/
 
 const chartOptions: Highcharts.Options = {
@@ -58,11 +56,7 @@ const Chart: React.FC<{ pair: [string, string] }> = ({ pair }) => {
   )
 
   /* render */
-  return (
-    <Segment>
-      <div ref={chartRef} />
-    </Segment>
-  )
+  return <div ref={chartRef} />
 }
 
 export default Chart
