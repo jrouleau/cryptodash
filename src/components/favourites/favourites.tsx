@@ -6,8 +6,7 @@ import { Button, Grid, Image } from 'semantic-ui-react'
 
 /**********************************************************************/
 
-const Favourites: React.FC = () => {
-  const selected = 'BTC'
+const Favourites: React.FC<{ selected: string }> = ({ selected }) => {
   const favourites = [
     { Symbol: 'BTC', ImageUrl: '/media/19633/btc.png' },
     { Symbol: 'ETH', ImageUrl: '/media/20646/eth_logo.png' },

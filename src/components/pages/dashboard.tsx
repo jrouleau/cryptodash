@@ -15,7 +15,7 @@ const DashboardPage: React.FC<{ selectedCoin: string }> = ({
     <Grid>
       <Grid.Row>
         <Grid.Column>
-          <Favourites />
+          <Favourites selected={selectedCoin} />
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
