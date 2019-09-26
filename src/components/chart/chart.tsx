@@ -56,7 +56,20 @@ const Chart: React.FC<{ pair: [string, string] }> = ({ pair }) => {
   )
 
   /* render */
-  return <div ref={chartRef} />
+  return (
+    <div
+      style={{
+        width: '100%',
+        paddingTop: `${(9 / 16) * 100}%`,
+        position: 'relative',
+      }}
+    >
+      <div
+        style={{ position: 'absolute', top: 0, left: 0, bottom: 0, right: 0 }}
+        ref={chartRef}
+      />
+    </div>
+  )
 }
 
 export default Chart
