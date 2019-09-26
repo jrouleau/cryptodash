@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { navigate } from 'hookrouter'
-
 import { Grid } from 'semantic-ui-react'
 
 import Chart from '../chart'
@@ -9,11 +7,9 @@ import Favourites from '../favourites'
 
 /**********************************************************************/
 
-const DashboardPage: React.FC<{ id?: string }> = ({ id }) => {
-  const [fsym, tsym] = id ? id.split(':') : []
+const DashboardPage: React.FC<{ id: string }> = ({ id }) => {
+  const [fsym, tsym] = id.split(':')
   const pair: [string, string] = [fsym, tsym]
-
-  if (!fsym || !tsym) navigate('/c/BTC:USD', true)
 
   /* render */
   return (

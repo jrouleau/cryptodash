@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { HookRouter, useRoutes } from 'hookrouter'
+import { HookRouter, useRedirect, useRoutes } from 'hookrouter'
 
 import DashboardPage from '../pages/dashboard'
 import NotFoundPage from '../pages/not-found'
@@ -13,11 +13,11 @@ import { Container } from 'semantic-ui-react'
 /**********************************************************************/
 
 const routes = {
-  '/': () => <DashboardPage />,
   '/c/:id': ({ id }: HookRouter.QueryParams) => <DashboardPage id={id} />,
 }
 
 const App: React.FC = () => {
+  useRedirect('/', '/c/BTC:USD')
   const page = useRoutes(routes)
 
   /* render */
