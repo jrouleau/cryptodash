@@ -7,10 +7,9 @@ import Favourites from '../favourites'
 
 /**********************************************************************/
 
-const DashboardPage: React.FC<{ id: string }> = ({ id }) => {
-  const [fsym, tsym] = id.split(':')
-  const pair: [string, string] = [fsym, tsym]
-
+const DashboardPage: React.FC<{ selectedCoin: string }> = ({
+  selectedCoin,
+}) => {
   /* render */
   return (
     <Grid>
@@ -21,7 +20,7 @@ const DashboardPage: React.FC<{ id: string }> = ({ id }) => {
       </Grid.Row>
       <Grid.Row>
         <Grid.Column>
-          <Chart pair={pair} />
+          <Chart pair={[selectedCoin, 'USD']} />
         </Grid.Column>
       </Grid.Row>
     </Grid>

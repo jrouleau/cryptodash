@@ -13,11 +13,13 @@ import { Container } from 'semantic-ui-react'
 /**********************************************************************/
 
 const routes = {
-  '/c/:id': ({ id }: HookRouter.QueryParams) => <DashboardPage id={id} />,
+  '/c/:symbol': ({ symbol }: HookRouter.QueryParams) => (
+    <DashboardPage selectedCoin={symbol} />
+  ),
 }
 
 const App: React.FC = () => {
-  useRedirect('/', '/c/BTC:USD')
+  useRedirect('/', '/c/BTC')
   const page = useRoutes(routes)
 
   /* render */
