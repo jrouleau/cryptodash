@@ -19,11 +19,16 @@ const Favourites: React.FC<{ selected: string }> = ({ selected }) => {
 
   /* render */
   return (
-    <Grid columns="8" doubling spacing="">
+    <Grid columns="8" doubling style={{ padding: '0 .75rem' }}>
       {favourites.map((f) => {
         const isActive = f.Symbol === selected
         return (
-          <Grid.Column key={f.Symbol} textAlign="center" verticalAlign="middle">
+          <Grid.Column
+            key={f.Symbol}
+            textAlign="center"
+            verticalAlign="middle"
+            style={{ padding: '.25rem' }}
+          >
             <Button
               active={isActive}
               color={isActive ? 'green' : 'blue'}
@@ -39,8 +44,8 @@ const Favourites: React.FC<{ selected: string }> = ({ selected }) => {
                 circular
                 src={`https://www.cryptocompare.com${f.ImageUrl}`}
                 style={{
-                  marginLeft: '-1rem',
-                  marginRight: '1rem',
+                  marginLeft: '-.75rem',
+                  marginRight: '.75rem',
                   width: '2rem',
                   height: '2rem',
                   backgroundColor: '#fff',
