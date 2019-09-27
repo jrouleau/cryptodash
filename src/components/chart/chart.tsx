@@ -61,6 +61,7 @@ const Chart: React.FC<{ pair: [string, string] }> = ({ pair }) => {
       style={{
         width: '100%',
         paddingTop: `${(9 / 16) * 100}%`,
+        minHeight: 400,
         position: 'relative',
       }}
     >
